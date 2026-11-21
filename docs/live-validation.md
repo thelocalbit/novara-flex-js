@@ -17,8 +17,8 @@ the OpenAPI contract cannot express, or that could not be confirmed:
   bounds a request that hangs outright, and a read that times out is now retried (see
   [Retries](../README.md#retries)).
 - `users.list` takes no paging parameters and returns the entire roster in one response,
-  which can be large, alongside an undocumented `columns` array of the column keys the
-  account exposes. `projects.list` pages with `limit`/`page`, and its
+  which can be large, alongside a `columns` array of the column keys the account exposes.
+  The vendor's example response now shows `columns` too. `projects.list` pages with `limit`/`page`, and its
   `paging.last_page` counts pages at the requested `limit`, not records.
 - The shape of a `Project.attachments` entry is unverified: not yet observed on the wire.
   The contract leaves the item open.
@@ -31,8 +31,8 @@ From the equipment and project run on 2026-09-14:
 
 - `EquipmentMetafield.list_id` is `null` for a metafield that is not backed by a list. The
   contract said `integer`; it now says `integer | null`, which is the only spec change this
-  round. `Account.userMetafields[].list_id` keeps `integer`, since a null there is
-  unverified.
+  round. `Account.userMetafields[].list_id` is also `integer | null`, to match; a null
+  there is unverified.
 - `EquipmentType` matched the contract (`id`, `title`, `created`, `metafields`). The
   inspection-schedule entry of its `schedules` is unverified: not yet observed on the wire.
 - `Equipment` matched the contract for every field it returned, and the wire carries two

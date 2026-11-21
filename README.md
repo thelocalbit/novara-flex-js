@@ -244,7 +244,8 @@ milliseconds from 0 to 2147483647.
 Novara Flex allows about **80 requests a minute per customer account**, and that pool is
 shared by every token, process, and integration on the account. The vendor documents about
 a minute of errors after a violation, for all of them, not only for the client that went
-over.
+over. It also warns that egregious request rates or extended violations can get a token,
+or the whole site's API access, deactivated.
 
 - **Set a budget.** `rateLimit: { requestsPerMinute }` spaces this client's request starts
   evenly, retries included. It is off by default. Pick a budget well below the vendor's

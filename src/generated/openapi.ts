@@ -1215,7 +1215,7 @@ export interface components {
         } & {
             [key: string]: unknown;
         };
-        /** @description One field of a form version, discriminated on type. The published docs describe neither the field types nor their settings; the types and every settings shape here were observed on the live API across form definitions and every version of each (include_versions) on 2026-09-27, and re-checked on 2026-09-29. No earlier version used a type outside this set. The common types carry a typed settings object; the rare ones (counter, calculation, followup, subreport) keep settings open. A settings key is required only where every field of that type, in every version, carried it. Field-level display flags (hidden, varName, showif, and similar) are not modeled and pass through as additional properties. */
+        /** @description One field of a form version, discriminated on type. The published docs list no catalogue of field types or their settings (their forms.info example shows only select, text and attachments fields); the types and every settings shape here were observed on the live API across form definitions and every version of each (include_versions) on 2026-09-27, and re-checked on 2026-09-29. No earlier version used a type outside this set. The common types carry a typed settings object; the rare ones (counter, calculation, followup, subreport) keep settings open. A settings key is required only where every field of that type, in every version, carried it. Field-level display flags (hidden, varName, showif, and similar) are not modeled and pass through as additional properties. */
         FormField: components["schemas"]["FormFieldAttachments"] | components["schemas"]["FormFieldCalculation"] | components["schemas"]["FormFieldCheckbox"] | components["schemas"]["FormFieldCounter"] | components["schemas"]["FormFieldDatetime"] | components["schemas"]["FormFieldDescription"] | components["schemas"]["FormFieldFollowup"] | components["schemas"]["FormFieldGroupSignature"] | components["schemas"]["FormFieldHeading"] | components["schemas"]["FormFieldSelect"] | components["schemas"]["FormFieldSketch"] | components["schemas"]["FormFieldSubreport"] | components["schemas"]["FormFieldText"];
         /** @description A file or photo upload field. */
         FormFieldAttachments: components["schemas"]["FormFieldBase"] & ({
@@ -3389,7 +3389,7 @@ export interface operations {
                      */
                     response_id?: number;
                     /**
-                     * @description Filter by follow-up status.
+                     * @description Filter by follow-up status. all, or omitting it, includes every follow-up.
                      * @example open
                      * @enum {string}
                      */
@@ -4439,7 +4439,7 @@ export interface operations {
                      */
                     followup_display_id?: boolean;
                     /**
-                     * @description Filter based on pending follow-ups.
+                     * @description Filter based on pending follow-ups. all, or omitting it, includes every response.
                      * @example pending
                      * @enum {string}
                      */
