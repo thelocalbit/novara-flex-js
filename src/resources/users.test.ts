@@ -9,7 +9,7 @@ import {
   TOKEN,
 } from "../test-support/fake-fetch.js";
 
-/** A minimal `users.list` success body, including the undocumented `columns`. */
+/** A minimal `users.list` success body, including its `columns` array. */
 const USERS_BODY = {
   ok: true,
   users: [

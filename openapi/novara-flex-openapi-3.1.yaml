@@ -1813,7 +1813,7 @@ paths:
                   - open
                   - closed
                   - overdue
-                  description: Filter by follow-up status.
+                  description: Filter by follow-up status. all, or omitting it, includes every follow-up.
                   example: open
                 observer_id:
                   type: string
@@ -3121,7 +3121,7 @@ paths:
                   enum:
                   - all
                   - pending
-                  description: Filter based on pending follow-ups.
+                  description: Filter based on pending follow-ups. all, or omitting it, includes every response.
                   example: pending
                 before:
                   type: integer
@@ -4419,8 +4419,9 @@ components:
       - score
       - latest
     FormField:
-      description: 'One field of a form version, discriminated on type. The published docs describe neither the field
-        types nor their settings; the types and every settings shape here were observed on the live API across form
+      description: 'One field of a form version, discriminated on type. The published docs list no catalogue of field
+        types or their settings (their forms.info example shows only select, text and attachments fields); the
+        types and every settings shape here were observed on the live API across form
         definitions and every version of each (include_versions) on 2026-09-27, and re-checked on 2026-09-29.
         No earlier version used a type outside this set. The common types carry a typed settings object; the rare ones
         (counter, calculation, followup, subreport) keep settings open. A settings key is required only where every
